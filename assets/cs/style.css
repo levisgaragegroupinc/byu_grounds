@@ -5,3 +5,11 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+.container-fluid {
+    margin-top: 20px;
+}
+
+.byucolor {
+    color: #002152;
+}
