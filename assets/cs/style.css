@@ -1,15 +1,62 @@
+body {
+    margin-bottom: 40px;
+}
+
 .header {
+    display: flex;
     color: white;
     background-color: #002152;
     height: 40px;
     padding-top: 5px;
     padding-bottom: 5px;
+    justify-content: space-between;
 }
 
-.container-fluid {
+.spacing {
     margin-top: 20px;
 }
 
 .byucolor {
     color: #002152;
+}
+
+#day0 {
+    background-color: #002152;
+    color: white;
+    border-top-left-radius: 6px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+textarea {
+    width: 78%;
+    resize: none;
+    border: solid 1px #002152;
+    border-radius: 6px;
+}
+
+button {
+    border: solid 1px #002152;
+    border-radius: 6px;
+    background-color: white;
+    width: 60px;
+    height: 40px;
+    color: #002152;
+}
+
+.notes-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button:hover {
+    background-color: #002152;
+    color: white;
+    opacity: 90%;
+    transition-duration: 0.5s;
 }
