@@ -1,4 +1,5 @@
 
+var input = document.querySelector('.saveBtn');
 
 
 var secondInterval = window.setInterval(function() {
@@ -13,10 +14,8 @@ for (let num = 0; num < 3; ++num) {
     let dayNew = moment().add(subNum, 'days');
     let day = '#day';
     let dayId = day + num;
-    console.log(dayId);
     $(dayId).text(dayNew.format('ddd'));
     subNum = subNum -1;
-    console.log(subNum);
 };
 
 var inputKey = [1, 2];
@@ -28,13 +27,41 @@ for (let i = 0; i < inputKey.length; i++) {
 
 $('.saveBtn').click(function(event) {
     event.preventDefault();
-    var inputText = $(this).siblings('.form-control').val();
-    console.log(inputText);
+    var currentTime = moment();
+    var timeStamp = currentTime.format('ddd, h:mm a');
+    var inputText = $(this).siblings('.form-control').val() + ' ' + '-' + timeStamp;
     var key = $(this).parent().data('note');
-    // var key = $('this').siblings().data('note');
-    console.log(key);
     localStorage.setItem(key, inputText);
+
+    for (let i = 0; i < inputKey.length; i++) {
+        var inputText = localStorage.getItem(inputKey[i]);
+        $('.input' + inputKey[i]).val(inputText);
+    };
 });
+
+// function getNotes() {
+//     var currentTime = moment();
+//     var timeStamp = currentTime.format('ddd, h:mm a');
+//     var inputText = $(this).siblings('.form-control').val() + ' ' + '-' + timeStamp;
+//     var key = $(this).parent().data('note');
+//     localStorage.setItem(key, inputText);
+    
+//     for (let i = 0; i < inputKey.length; i++) {
+//         var inputText = localStorage.getItem(inputKey[i]);
+//         $('.input' + inputKey[i]).val(inputText);
+//     };
+// };
+
+// $('.saveBtn').click(function(event) {
+//     getNotes();
+// });
+
+// input.addEventListener('keyup', function(event){
+//     if (event.keyCode === 13) {
+//         event.preventDefault();
+//         document.querySelector('.saveBtn').click();
+//     }
+// });
 
 
 // BYU_Grounds-Haws_Field 
