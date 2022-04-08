@@ -1,5 +1,6 @@
 
 
+
 var secondInterval = window.setInterval(function() {
     var currentDateTime = moment();
     $('#currentDay').text(currentDateTime.format('ddd, h:mm a'));
@@ -9,14 +10,31 @@ var secondInterval = window.setInterval(function() {
 var subNum = 0
 
 for (let num = 0; num < 3; ++num) {
-    var dayNew = moment().add(subNum, 'days');
-    var day = '#day';
+    let dayNew = moment().add(subNum, 'days');
+    let day = '#day';
     let dayId = day + num;
     console.log(dayId);
     $(dayId).text(dayNew.format('ddd'));
     subNum = subNum -1;
     console.log(subNum);
 };
+
+var inputKey = [1, 2];
+
+for (let i = 0; i < inputKey.length; i++) {
+    var inputText = localStorage.getItem(inputKey[i]);
+    $('.input' + inputKey[i]).val(inputText);
+};
+
+$('.saveBtn').click(function(event) {
+    event.preventDefault();
+    var inputText = $(this).siblings('.form-control').val();
+    console.log(inputText);
+    var key = $(this).parent().data('note');
+    // var key = $('this').siblings().data('note');
+    console.log(key);
+    localStorage.setItem(key, inputText);
+});
 
 
 // BYU_Grounds-Haws_Field 
